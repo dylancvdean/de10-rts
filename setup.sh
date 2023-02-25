@@ -29,7 +29,7 @@ pushd build
 if [ ! -d linux-socfpga ]
   then
     git clone --depth 1 --recurse-submodules --shallow-submodules \
-    https://github.com/michaelshmitty/linux-socfpga.git
+    https://github.com/dylancvdean/linux-socfpga.git
 fi
 
 ## Buildroot
