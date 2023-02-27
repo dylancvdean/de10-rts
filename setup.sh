@@ -22,7 +22,7 @@ BUILDROOT_VERSION="2020.02.3"
 sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf \
   liblz4-tool bc curl gcc git libssl-dev libncurses5-dev lzop make \
-  unzip exfat-utils rsync dosfstools fdisk
+  unzip exfat-utils rsync dosfstools fdisk python3 python3-pip python python-pip
 
 pushd build
 ## Linux kernel
