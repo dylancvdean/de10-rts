@@ -18,11 +18,11 @@
 MISTER_RELEASE="release_20221224.7z"
 
 # Create the sd card image container.
-sudo dd if=/dev/zero of=images/mr-fusion.img bs=12M count=10
+sudo dd if=/dev/zero of=images/mr-fusion.img bs=12M count=15
 
 # Partition the sd card image.
 sudo sfdisk --force images/mr-fusion.img << EOF
-start=10240, type=0b
+start=15240, type=0b
 start=2048, size=8192, type=a2
 EOF
 
