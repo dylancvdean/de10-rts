@@ -44,30 +44,6 @@ sudo cp -r vendor/support/* /mnt/data/
 # Copy kernel and initramfs.
 sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/data
 
-# Download and copy MiSTer release.
-rm -f release.7z
-wget -c https://github.com/dylancvdean/SD-Installer-Win64_MiSTer/raw/master/${MISTER_RELEASE} -O release.7z
-sudo cp release.7z /mnt/data
-rm -f release.7z
-
-# Support MiSTer Scripts.
-sudo mkdir -p /mnt/data/Scripts
-
-# Bundle WiFi setup script with Mr. Fusion
-rm -f wifi.sh
-wget -c https://raw.githubusercontent.com/dylancvdean/Scripts_MiSTer/master/other_authors/wifi.sh
-sudo cp wifi.sh /mnt/data/Scripts
-rm -f wifi.sh
-
-# Bundle SDL Game Controller DB with Mr. Fusion
-rm -f gamecontrollerdb.txt
-wget -c https://raw.githubusercontent.com/dylancvdean/Distribution_MiSTer/main/linux/gamecontrollerdb/gamecontrollerdb.txt
-sudo cp gamecontrollerdb.txt /mnt/data
-rm -f gamecontrollerdb.txt
-
-# Support custom MiSTer config
-sudo mkdir -p /mnt/data/config
-
 # Clean up.
 sudo umount /mnt/data
 sudo losetup -d /dev/loop0
