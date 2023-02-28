@@ -15,8 +15,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-MISTER_RELEASE="release_20221224.7z"
-
 # Create the sd card image container.
 sudo dd if=/dev/zero of=images/mr-fusion.img bs=12M count=12
 
@@ -34,7 +32,7 @@ sudo dd if="vendor/bootloader.img" of="/dev/loop0p2" bs=64k
 sync
 
 # Create the data partition.
-sudo mkfs.vfat -n "MRFUSION" /dev/loop0p1
+sudo mkfs.vfat -n "RTS" /dev/loop0p1
 sudo mkdir -p /mnt/data
 sudo mount /dev/loop0p1 /mnt/data
 
