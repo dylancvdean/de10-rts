@@ -25,7 +25,9 @@ sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   unzip exfat-utils rsync dosfstools fdisk python3 \
   python3-pip python-is-python3 glibc-source
 
+## Python packages
 pip install spdx_lookup pybind11 cppy
+
 pushd build
 ## Linux kernel
 if [ ! -d linux-socfpga ]
