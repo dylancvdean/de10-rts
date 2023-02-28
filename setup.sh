@@ -45,6 +45,7 @@ if [ ! -d buildroot ]
     git clone https://github.com/dylancvdean/buildroot_scanpypi3
     mv buildroot_scanpypi3/scanpypi3 .
     rm -rf buildroot_scanpypi3
+    chmod +x scanpypi3
     ##scanpypi stuff here
     popd
     popd
