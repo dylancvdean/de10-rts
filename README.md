@@ -45,7 +45,7 @@ for more details.
 ## Acknowledgements
 
 Thanks to Sorgelig, Rysha, Ziggurat, alanswx, r0ni and Locutus73 for their insights.
-Thanks to amoore2600 and michaelshmitty
+Thanks to amoore2600 and michaelshmitty.
 Thanks to everyone else who contributes to the MiSTer FPGA project.
 
 ## Disclaimer
