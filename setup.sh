@@ -50,4 +50,4 @@ cp config/buildroot-defconfig build/buildroot/configs/mrfusion_defconfig
 cp config/kernel-defconfig build/linux-socfpga/arch/arm/configs/mrfusion_defconfig
 ## MiSTer installation init script
 mkdir -p build/buildroot/board/mrfusion/rootfs-overlay/etc/init.d
-cp scripts/S99install-MiSTer.sh build/buildroot/board/mrfusion/rootfs-overlay/etc/init.d/
+cp scripts/S99spectrogram.sh build/buildroot/board/mrfusion/rootfs-overlay/etc/init.d/
