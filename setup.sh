@@ -40,15 +40,6 @@ if [ ! -d buildroot ]
     tar xf buildroot-${BUILDROOT_VERSION}.tar.gz
     mv buildroot-${BUILDROOT_VERSION} buildroot
     rm buildroot-${BUILDROOT_VERSION}.tar.gz
-    pushd buildroot
-    pushd utils
-    git clone https://github.com/dylancvdean/buildroot_scanpypi3
-    mv buildroot_scanpypi3/scanpypi3 .
-    rm -rf buildroot_scanpypi3
-    chmod +x scanpypi3
-    ##scanpypi stuff here
-    popd
-    popd
 fi
 popd
 
