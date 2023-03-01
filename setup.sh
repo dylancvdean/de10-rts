@@ -42,7 +42,7 @@ pushd build
 ## Linux kernel
 if [ ! -d linux-socfpga ]
   then
-    git clone --depth 1 --recurse-submodules --shallow-submodules \
+    git clone --depth 1 --recurse-submodules --shallow-submodules --branch socfpga-4.5\
     https://github.com/dylancvdean/linux-socfpga.git
 fi
 
