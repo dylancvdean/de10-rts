@@ -26,7 +26,9 @@ sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   python3-pip python-is-python3 musl musl-dev musl-tools \
   build-essential python-dev libbz2-dev libsqlite3-dev \
   libreadline-dev libgdbm-dev libdb-dev tk-dev libssl-dev libffi-dev \
-  libpng-dev libjpeg-dev libgif-dev
+  libpng-dev libjpeg-dev libgif-dev gcc-aarch64-linux-gnu \
+  liblzma-dev libncursesw5-dev libtinfo-dev
+
 
 ## Python packages
 pip install spdx_lookup pybind11 cppy
