@@ -23,7 +23,10 @@ sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf \
   liblz4-tool bc curl gcc git libssl-dev libncurses5-dev lzop make \
   unzip exfat-utils rsync dosfstools fdisk python3 \
-  python3-pip python-is-python3 musl musl-dev musl-tools
+  python3-pip python-is-python3 musl musl-dev musl-tools \
+  build-essential python-dev libbz2-dev libsqlite3-dev \
+  libreadline-dev libgdbm-dev libdb-dev tk-dev libssl-dev libffi-dev \
+  libpng-dev libjpeg-dev libgif-dev
 
 ## Python packages
 pip install spdx_lookup pybind11 cppy
