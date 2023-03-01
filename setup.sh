@@ -28,10 +28,10 @@ sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   libreadline-dev libgdbm-dev libdb-dev tk-dev libssl-dev libffi-dev \
   libpng-dev libjpeg-dev libgif-dev gcc-aarch64-linux-gnu \
   liblzma-dev libncursesw5-dev libtinfo-dev \
-  gdb lcov pkg-config \
+  gdb lcov pkg-config python3-setuptools \
   libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
   libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
-  lzma lzma-dev tk-dev uuid-dev zlib1g-dev
+  lzma lzma-dev tk-dev uuid-dev zlib1g-dev python-setuptools
 
 ## Python packages
 pip install spdx_lookup pybind11 cppy
