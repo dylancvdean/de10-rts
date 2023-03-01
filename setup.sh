@@ -34,7 +34,8 @@ sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   lzma lzma-dev tk-dev uuid-dev zlib1g-dev python-setuptools
 
 ## Python packages
-pip install spdx_lookup pybind11 cppy
+sudo pip install --upgrade setuptools numpy matplotlib pip
+sudo pip install spdx_lookup pybind11 cppy dl imageop sunaudiodev bsddb185
 
 pushd build
 ## Linux kernel
