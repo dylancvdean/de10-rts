@@ -15,7 +15,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-BUILDROOT_VERSION="2020.02.3"
+#BUILDROOT_VERSION="2020.02.3"
+BUILDROOT_VERSION="2022.11"
 
 # Install dependencies
 ## System packages
