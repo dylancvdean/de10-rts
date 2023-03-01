@@ -39,12 +39,6 @@ sudo pip install --upgrade setuptools numpy matplotlib pip
 sudo pip install spdx_lookup pybind11 cppy dl imageop sunaudiodev bsddb185
 
 pushd build
-## Linux kernel
-if [ ! -d linux-socfpga ]
-  then
-    git clone --depth 1 --recurse-submodules --shallow-submodules \
-    https://github.com/dylancvdean/linux-socfpga.git
-fi
 
 ## Buildroot
 if [ ! -d buildroot ]
