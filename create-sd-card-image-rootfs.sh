@@ -7,7 +7,7 @@ rootfs="./build/buildroot/output/images/rootfs.ext4"
 image="sdcard.img"
 
 # create the disk image
-dd if=/dev/zero of=$image bs=1M count=128
+dd if=/dev/zero of=$image bs=1M count=600
 
 # partition the disk image
 /usr/sbin/parted $image --script -- mklabel msdos
