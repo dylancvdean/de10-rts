@@ -10,9 +10,9 @@ image="sdcard.img"
 dd if=/dev/zero of=$image bs=1M count=128
 
 # partition the disk image
-parted $image --script -- mklabel msdos
-parted $image --script -- mkpart primary fat32 1 64
-parted $image --script -- mkpart primary ext4 65 500
+/usr/sbin/parted $image --script -- mklabel msdos
+/usr/sbin/parted $image --script -- mkpart primary fat32 1 64
+/usr/sbin/parted $image --script -- mkpart primary ext4 65 500
 
 
 # format the partitions
