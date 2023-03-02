@@ -1,49 +1,48 @@
 #!/bin/bash
-# Copyright 2022 Michael Smith <m@hacktheplanet.be>
 
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 3 as published
-# by the Free Software Foundation.
+# set variables for file paths
+zImage="./zImage"
+dtb="./socfpga.dtb"
+rootfs="./build/buildroot/output/images/rootfs.ext4"
+image="sdcard.img"
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# create the disk image
+dd if=/dev/zero of=$image bs=1M count=128
 
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301, USA.
+# partition the disk image
+parted $image --script -- mklabel msdos
+parted $image --script -- mkpart primary fat32 1 64
+parted $image --script -- mkpart primary ext4 65 500
 
-# Create the sd card image container.
-sudo dd if=/dev/zero of=images/mr-fusion.img bs=12M count=12
 
-# Partition the sd card image.
-sudo sfdisk --force images/mr-fusion.img << EOF
-start=20240, type=0b
-start=2048, size=8192, type=a2
-EOF
+# format the partitions
+loopback_dev=$(sudo losetup --find --partscan --show $image)
+loopback_dev_p1="${loopback_dev}p1"
+loopback_dev_p2="${loopback_dev}p2"
 
-# Attach the sd card image to a loopback device.
-sudo losetup -fP images/mr-fusion.img
+sudo mkfs.vfat -n BOOT $loopback_dev_p1
+sudo mkfs.ext4 -L rootfs $loopback_dev_p2
 
-# Install the bootloader.
-sudo dd if="vendor/bootloader.img" of="/dev/loop0p2" bs=64k
-sync
+# mount the partitions
+boot_mount_point="/mnt/boot"
+rootfs_mount_point="/mnt/rootfs"
 
-# Create the root filesystem.
-sudo mkfs.ext4 -F -L "rootfs" /dev/loop0p1
+sudo mkdir -p $boot_mount_point
+sudo mount $loopback_dev_p1 $boot_mount_point
+sudo mkdir -p $rootfs_mount_point
+sudo mount $loopback_dev_p2 $rootfs_mount_point
 
-# Mount the root filesystem.
-sudo mkdir -p /mnt/rootfs
-sudo mount /dev/loop0p1 /mnt/rootfs
+# copy kernel and device tree blob to boot partition
+sudo cp $zImage $boot_mount_point/zImage
+sudo cp $dtb $boot_mount_point/socfpga.dtb
 
-# Copy support files.
-sudo cp -r vendor/support/* /mnt/rootfs/
+# copy root filesystem to rootfs partition
+sudo tar -xf $rootfs -C $rootfs_mount_point
 
-# Copy kernel and initramfs.
-#sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/rootfs
-sudo cp zImage /mnt/rootfs
-# Clean up.
-sudo umount /mnt/rootfs
-sudo losetup -d /dev/loop0
+# unmount the partitions and cleanup
+sudo umount $boot_mount_point
+sudo umount $rootfs_mount_point
+sudo losetup -d $loopback_dev
+sudo rmdir $boot_mount_point $rootfs_mount_point
+
+echo "Done."
