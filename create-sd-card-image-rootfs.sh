@@ -2,7 +2,7 @@
 
 # set variables for file paths
 zImage="./zImage"
-dtb="./socfpga.dtb"
+dtb="./socfpga_cyclone5_de10_nano.dtb"
 rootfs="./build/buildroot/output/images/rootfs.ext4"
 image="sdcard.img"
 
