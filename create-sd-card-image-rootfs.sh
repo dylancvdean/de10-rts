@@ -42,8 +42,8 @@ sudo mount /dev/loop0p1 /mnt/rootfs
 sudo cp -r vendor/support/* /mnt/rootfs/
 
 # Copy kernel and initramfs.
-sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/rootfs
-
+#sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/rootfs
+sudo cp zImage /mnt/rootfs
 # Clean up.
 sudo umount /mnt/rootfs
 sudo losetup -d /dev/loop0

@@ -40,7 +40,7 @@ sudo mount /dev/loop0p1 /mnt/data
 sudo cp -r vendor/support/* /mnt/data/
 
 # Copy kernel and initramfs.
-sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/data
+sudo cp zImage /mnt/data
 
 # Clean up.
 sudo umount /mnt/data
