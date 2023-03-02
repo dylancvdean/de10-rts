@@ -33,7 +33,6 @@ sudo apt-get -y install build-essential git libncurses-dev flex bison openssl \
   libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
   libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
   lzma lzma-dev tk-dev uuid-dev zlib1g-dev python-setuptools \
-  gcc-9-arm-linux-gnueabi
 
 ## Python packages
 sudo pip install --upgrade setuptools numpy matplotlib pip
