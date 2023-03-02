@@ -31,17 +31,19 @@ sudo losetup -fP images/mr-fusion.img
 sudo dd if="vendor/bootloader.img" of="/dev/loop0p2" bs=64k
 sync
 
-# Create the data partition.
-sudo mkfs.vfat -n "RTS" /dev/loop0p1
-sudo mkdir -p /mnt/data
-sudo mount /dev/loop0p1 /mnt/data
+# Create the root filesystem.
+sudo mkfs.ext4 -F -L "rootfs" /dev/loop0p1
+
+# Mount the root filesystem.
+sudo mkdir -p /mnt/rootfs
+sudo mount /dev/loop0p1 /mnt/rootfs
 
 # Copy support files.
-sudo cp -r vendor/support/* /mnt/data/
+sudo cp -r vendor/support/* /mnt/rootfs/
 
 # Copy kernel and initramfs.
-sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/data
+sudo cp build/linux-socfpga/arch/arm/boot/zImage /mnt/rootfs
 
 # Clean up.
-sudo umount /mnt/data
+sudo umount /mnt/rootfs
 sudo losetup -d /dev/loop0
