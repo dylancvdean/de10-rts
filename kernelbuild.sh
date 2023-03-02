@@ -17,12 +17,6 @@
 
 COMPILE_THREADS=10
 
-# buildroot
-pushd build/buildroot
-make mrfusion_defconfig
-make
-popd
-
 echo "COMPILING KERNEL"
 # Linux
 pushd build/linux-socfpga
