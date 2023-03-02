@@ -23,6 +23,7 @@ make mrfusion_defconfig
 make
 popd
 
+echo "COMPILING KERNEL"
 # Linux
 pushd build/linux-socfpga
 make ARCH=arm CROSS_COMPILE=../buildroot/output/host/bin/arm-buildroot-linux-uclibcgnueabi- mrfusion_defconfig
