@@ -18,12 +18,10 @@
 COMPILE_THREADS=10
 
 echo "COMPILING KERNEL"
-export CROSS_COMPILE="arm-linux-gnueabi-"
-echo $CROSS_COMPILE
 # Linux
 pushd build/linux-socfpga
-make ARCH=arm mrfusion_defconfig
-make ARCH=arm -j${COMPILE_THREADSe}
-make ARCH=arm socfpga_cyclone5_socdk.dtb
+make ARCH=arm CROSS_COMPILE=../buildroot/output/host/bin/arm-buildroot-linux-gnueabi- mrfusion_defconfig
+make ARCH=arm CROSS_COMPILE=../buildroot/output/host/bin/arm-buildroot-linux-gnueabi- -j${COMPILE_THREADSe}
+make ARCH=arm CROSS_COMPILE=../buildroot/output/host/bin/arm-buildroot-linux-gnueabi- socfpga_cyclone5_socdk.dtb
 popd
 
