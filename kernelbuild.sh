@@ -15,7 +15,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-COMPILE_THREADS=10
+COMPILE_THREADS=8
 
 echo "COMPILING KERNEL"
 # Linux
